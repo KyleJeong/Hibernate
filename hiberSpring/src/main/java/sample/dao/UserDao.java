@@ -8,5 +8,9 @@ public interface UserDao {
 	
 
 	public void saveUser(User user) ;
+	
+	public List<User> findUser();
+
+	public void removeUser(User user);
 
 }
