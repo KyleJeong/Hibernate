@@ -8,10 +8,8 @@
 </head>
 <body>
 <form action="register" method="post">  
-Num:<input type="text" name="num"/><br><br/>  
-Code:<input type="text" name="code"/><br><br/>  
  
-<input type="submit" value="register"/>"  
+<input type="submit" value="register"/> 
   
 </form>  
 </body>

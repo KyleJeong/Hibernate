@@ -37,8 +37,9 @@ public class IndexController {
 	        UserService.saveUser(user);
 	        
 	        List<User> list = UserService.findUser();
-	        //System.out.println(list.get(0).getName());
-
+	        System.out.println(list.get(0).getCode());
+	        
+	        UserService.removeUser(user);
 	       /* person.setName("foo");
 	        personService.updatePerson(person);
 	        

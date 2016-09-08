@@ -12,7 +12,7 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-      classpath:/META-INF/spring/beans-service.xml
+      classpath:/META-INF/spring/beans-webmvc.xml
     </param-value>
   </context-param>
   <listener>

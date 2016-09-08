@@ -21,13 +21,15 @@
 
   
   <mvc:annotation-driven/>
+  
+  <!-- 1 -->
   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
   	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
   	<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl1"/>
   	<property name="username" value="HJEONG"/>
   	<property name="password" value="1111"/>
   </bean>
-  
+  <!-- 2 -->
   <bean id="sessionFactory"
         class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
@@ -43,15 +45,16 @@
             </props>
         </property>
     </bean>
-  
+  <!-- 3 -->
   <bean class="org.springframework.orm.hibernate3.HibernateTemplate">
   	<property name="sessionFactory" ref="sessionFactory"/>
   </bean>
-  
+  <!-- 4 -->
    <bean id="transactionManager"
         class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+   </bean>
+   <!-- 5 -->
     <aop:config>
         <aop:advisor advice-ref="txAdvice"
             pointcut="execution(* *..*Service*.*(..))" />
@@ -63,8 +66,6 @@
             <tx:method name="remove*" propagation="REQUIRED"/>
         </tx:attributes>
     </tx:advice>
-  
-	
 	
   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/views/"/>
